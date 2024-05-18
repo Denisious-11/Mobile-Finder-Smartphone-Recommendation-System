@@ -1,0 +1,506 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Find_My_Mobile_User</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Free HTML Templates" name="keywords">
+    <meta content="Free HTML Templates" name="description">
+
+    <!-- Favicon -->
+    <link href="{% static 'img/favicon.ico' %}" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"> 
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="{% static 'lib/owlcarousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
+    <script src="{% static 'js_1/jquery2.0.3.min.js' %}"></script>
+    <script src="{% static 'js_1/raphael-min.js' %}"></script>
+    <script src="{% static 'js_1/morris.js' %}"></script>
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'datatable/jquery.dataTables.min.css' %}">
+    <script type="text/javascript" src="{% static 'datatable/jquery.dataTables.min.js' %}"></script>
+
+    <script type="text/javascript" src="{% static 'datatable/bootstable.min.js' %}"></script>
+
+    <style>
+        .a{background-color: lightslategray;
+            margin-left: 300px;
+            margin-right: 300px;
+            padding-left: 260px;}
+ 
+        #b1{background-color: orange;}
+        .dark{display: none;}
+
+    </style>
+    
+</head>
+
+<body>
+   <!-- Navbar Start -->
+    <div>
+        <div>
+            <nav class="navbar navbar-expand-lg bg-secondary navbar-dark">
+                <a href="#" class="navbar-brand">
+                    <h1 class="m-0 text-white display-4"><span class="text-primary">Mobile</span>Finder<span class="text-primary"></h1>
+                </a>
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse" >
+                    <div class="navbar-nav ml-auto py-0">
+                        <a href="{% url 'show_home_user' %}" class="nav-item nav-link active">Home</a>
+                        <a href="{% url 'display_find_my_mobile_user' %}" class="nav-item nav-link">Find My Mobile</a>
+                        <a href="{% url 'show_give_rating_user' %}" class="nav-item nav-link">Give Rating</a>
+                        <a href="{% url 'view_recommendations_user' %}" class="nav-item nav-link">View Recommendations</a>
+                        <a href="{% url 'logout' %}" class="nav-item nav-link" style="color:red;">Logout</a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <!-- Navbar End -->
+
+    <!-- Carousel Start -->
+    <div class="container-fluid p-0 mb-5">
+        <div class="p">
+            <h3 style="text-align: center; margin-top:60px;"><u>Select Your Requirements</u></h3><br>
+            <div class="a">
+                <br>
+                <form class="row contact_us_form">
+                            <div class="form-group col-md-6" style="color:black">
+                                RAM (GB) :
+                                <select id="id1" class="form-control" name="ram" required=""> 
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>6</option>
+                                    <option>8</option>
+                                </select><br>
+                                
+                                ROM (GB) :
+                                <select id="id2" class="form-control" name="rom" required=""> 
+                                    <option>16</option>
+                                    <option>32</option>
+                                    <option>64</option>
+                                    <option>128</option>
+                                    <option>256</option> 
+                                </select><br>
+                                Camera (MP) :
+                                <select id="id3" class="form-control" name="camera" required=""> 
+                                    <option>5</option>
+                                    <option>8</option>
+                                    <option>12</option>
+                                    <option>13</option>
+                                    <option>16</option>
+                                    <option>24</option>
+                                    <option>48</option>
+                                    <option>64</option>
+                                </select><br>
+                                Size(cm) :
+                                <select id="id4" class="form-control" name="size" required=""> 
+                                    <option>15</option>
+                                    <option>16</option>
+                                    <option>17</option>
+                                    <option>17.5</option>
+                                </select><br>
+
+                                Battery(Mah) :
+                                <select id="id5" class="form-control" name="battery" required=""> 
+                                    <option>3500</option>
+                                    <option>4000</option>
+                                    <option>4500</option>
+                                    <option>5000</option>
+                                    <option>5500</option>
+                                    <option>6000</option>
+                                </select><br>
+
+                                Rating :
+                                <select id="id6" class="form-control" name="rating" required="">
+                                    <option>3.0</option>
+                                    <option>3.3</option>
+                                    <option>3.5</option> 
+                                    <option>3.8</option>
+                                    <option>4.0</option>
+                                    <option>4.1</option>
+                                    <option>4.2</option>
+                                    <option>4.3</option>
+                                    <option>4.4</option>
+                                    <option>4.5</option>
+                                    <option>4.6</option>
+                                </select> <br>
+
+                                Budget :
+                                <input type="text" class="form-control" id="id7" name="price" placeholder="Budget" required=""><br><br>
+
+                                <button id="b1" type="button" class="btn btn-info" style="width:230px;">Find</button><br><br>
+
+                            </div><br>
+
+                        </form>
+            </div>
+        </div>
+        <div class="q dark">
+            <section class="our_cakes_area p_100">
+                <div class="container">
+                    <div class="main_title">
+                        <h2 style="text-align: center;margin-top: 30px;"><u>Suggested Mobiles</u></h2><br><br>
+                    </div>
+                    <div class="cake_feature_row row" style="margin-left: 370px; background: linear-gradient(to right, #dd5e89, #f7bb97); width: 400px;padding-left: 110px; text-align: center;">
+                        <div class="col-lg-6 col-md-4 col-6"><br><br>
+                            <div class="cake_feature_item" >
+                                <div class="cake_img">
+
+                                    <img id="img1" src="" alt="" height="200" width="100">
+                                </div>
+                                <div class="cake_text">
+                                    <h5>Mobile Name : <p id="p1"><p></h5>
+                                    <h6>RAM : <p id="p2"><p></h6>
+                                    <h6>ROM : <p id="p3"><p></h6>
+                                    <h6>Camera : <p id="p4"><p></h6>
+                                    <h6>Size : <p id="p5"><p></h6>
+                                    <h6>Battery : <p id="p6"><p></h6>
+                                    <h6>Rating : <p id="p7"><p></h6>
+                                    <h5>Price : <p id="p8"><p></h5>
+                                      
+
+                                    <form action="{% url 'purchase_mobile' %}" method="POST">{% csrf_token %}
+
+                                        <input id="i1" name="m_id" value="" hidden>
+
+                                        <input type="submit" value="Buy" class="btn btn-primary">
+
+                                    </form>
+
+                                </div>
+                            </div><br><br>
+                        </div>
+
+                    </div><br><br>
+
+
+                    <div class="cake_feature_row row" style="margin-left: 370px; background: linear-gradient(to right, #dd5e89, #f7bb97); width: 400px;padding-left: 110px; text-align: center;">
+                        <div class="col-lg-8 col-md-4 col-6"><br><br>
+                            <div class="cake_feature_item" >
+                                <div class="cake_img">
+
+                                    <img id="img2"  src="" alt="" height="200" width="100">
+                                </div>
+                                <div class="cake_text">
+                                    <h5>Mobile Name : <p id="p9"><p></h5>
+                                    <h6>RAM : <p id="p10"><p></h6>
+                                    <h6>ROM : <p id="p11"><p></h6>
+                                    <h6>Camera : <p id="p12"><p></h6>
+                                    <h6>Size : <p id="p13"><p></h6>
+                                    <h6>Battery : <p id="p14"><p></h6>
+                                    <h6>Rating : <p id="p15"><p></h6>
+                                    <h5>Price : <p id="p16"><p></h5>
+                                      
+
+                                    <form action="{% url 'purchase_mobile' %}" method="POST">{% csrf_token %}
+
+                                        <input  id="i2" name="m_id" value="" hidden>
+
+                                        <input type="submit" value="Buy" class="btn btn-primary">
+
+                                    </form>
+
+                                </div>
+                            </div><br><br>
+                        </div>
+
+                    </div><br><br>
+
+                    <div class="cake_feature_row row" style="margin-left: 370px; background: linear-gradient(to right, #dd5e89, #f7bb97); width: 400px;padding-left: 110px; text-align: center;">
+                        <div class="col-lg-8 col-md-4 col-6"><br><br>
+                            <div class="cake_feature_item" >
+                                <div class="cake_img">
+
+                                    <img  id="img3"  src="" alt="" height="200" width="100">
+                                </div>
+                                <div class="cake_text">
+                                    <h5>Mobile Name : <p id="p17"><p></h5>
+                                    <h6>RAM : <p id="p18"><p></h6>
+                                    <h6>ROM : <p id="p19"><p></h6>
+                                    <h6>Camera : <p id="p20"><p></h6>
+                                    <h6>Size : <p id="p21"><p></h6>
+                                    <h6>Battery : <p id="p22"><p></h6>
+                                    <h6>Rating : <p id="p23"><p></h6>
+                                    <h5>Price : <p id="p24"><p></h5>
+                                      
+
+                                    <form action="{% url 'purchase_mobile' %}" method="POST">{% csrf_token %}
+
+                                        <input  id="i3" name="m_id" value="" hidden>
+
+                                        <input type="submit" value="Buy" class="btn btn-primary">
+
+                                    </form>
+
+                                </div>
+                            </div><br><br>
+                        </div>
+
+                    </div><br><br>
+
+                    <div class="cake_feature_row row" style="margin-left: 370px; background: linear-gradient(to right, #dd5e89, #f7bb97); width: 400px;padding-left: 110px; text-align: center;">
+                        <div class="col-lg-8 col-md-4 col-6"><br><br>
+                            <div class="cake_feature_item">
+                                <div class="cake_img">
+
+                                    <img  id="img4" src="" alt="" height="200" width="100">
+                                </div>
+                                <div class="cake_text">
+                                    <h5>Mobile Name : <p id="p25"><p></h5>
+                                    <h6>RAM : <p id="p26"><p></h6>
+                                    <h6>ROM : <p id="p27"><p></h6>
+                                    <h6>Camera : <p id="p28"><p></h6>
+                                    <h6>Size : <p id="p29"><p></h6>
+                                    <h6>Battery : <p id="p30"><p></h6>
+                                    <h6>Rating : <p id="p31"><p></h6>
+                                    <h5>Price : <p id="p32"><p></h5>
+                                      
+
+                                    <form action="{% url 'purchase_mobile' %}" method="POST">{% csrf_token %}
+
+                                        <input  id="i4" name="m_id" value="" hidden>
+
+                                        <input type="submit" value="Buy" class="btn btn-primary">
+
+                                    </form>
+
+                                </div>
+                            </div><br><br>
+                        </div>
+
+                    </div><br><br>
+
+                    <div class="cake_feature_row row" style="margin-left: 370px; background: linear-gradient(to right, #dd5e89, #f7bb97); width: 400px;padding-left: 110px; text-align: center;">
+                        <div class="col-lg-8 col-md-4 col-6"><br><br>
+                            <div class="cake_feature_item" >  <!--style="background-color: #ffc3a0;"-->
+                                <div class="cake_img">
+
+                                    <img  id="img5" src="" alt="" height="200" width="100">
+                                </div>
+                                <div class="cake_text" >
+                                    <h5>Mobile Name : <p id="p33"><p></h5>
+                                    <h6>RAM : <p id="p34"><p></h6>
+                                    <h6>ROM : <p id="p35"><p></h6>
+                                    <h6>Camera : <p id="p36"><p></h6>
+                                    <h6>Size : <p id="p37"><p></h6>
+                                    <h6>Battery : <p id="p38"><p></h6>
+                                    <h6>Rating : <p id="p39"><p></h6>
+                                    <h5>Price : <p id="p40"><p></h5>
+                                      
+
+                                    <form action="{% url 'purchase_mobile' %}" method="POST">{% csrf_token %}
+
+                                        <input  id="i5" name="m_id" value="" hidden>
+
+                                        <input type="submit" value="Buy" class="btn btn-primary">
+
+                                    </form>
+
+                                </div>
+                            </div><br><br>
+                        </div>
+
+                    </div><br><br>
+
+                    <div class="cake_feature_row row" style="margin-left: 370px; background: linear-gradient(to right, #dd5e89, #f7bb97); width: 400px;padding-left: 110px; text-align: center;">
+                        <div class="col-lg-8 col-md-4 col-6"><br><br>
+                            <div class="cake_feature_item">
+                                <div class="cake_img">
+
+                                    <img  id="img6"  src="" alt="" height="200" width="100">
+                                </div>
+                                <div class="cake_text">
+                                    <h5>Mobile Name : <p id="p41"><p></h5>
+                                    <h6>RAM : <p id="p42"><p></h6>
+                                    <h6>ROM : <p id="p43"><p></h6>
+                                    <h6>Camera : <p id="p44"><p></h6>
+                                    <h6>Size : <p id="p45"><p></h6>
+                                    <h6>Battery : <p id="p46"><p></h6>
+                                    <h6>Rating : <p id="p47"><p></h6>
+                                    <h5>Price : <p id="p48"><p></h5>
+                                      
+
+                                    <form action="{% url 'purchase_mobile' %}" method="POST">{% csrf_token %}
+
+                                        <input  id="i6"  name="m_id" value="" hidden>
+
+                                        <input type="submit" value="Buy" class="btn btn-primary">
+
+                                    </form>
+
+                                </div>
+                            </div><br><br>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+        </div>
+
+    </div>
+    <!-- Carousel End -->
+
+
+
+
+    <!-- Footer Start -->
+    <div style="position: relative; top:164px; background-color:black; height: 57px;">
+        <p class="m-0 text-center" style="padding-top: 20px;">
+            &copy; <a class="font-weight-semi-bold" href="#">MobileFinder</a>. All Rights Reserved. Designed by
+            <a class="font-weight-semi-bold" href="#">Me</a>
+        </p>
+    </div>
+    <!-- Footer End -->
+
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary back-to-top"><i class="fa fa-angle-up"></i></a>
+
+
+    <!-- JavaScript Libraries -->
+ <!--    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script> -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="{% static 'lib/easing/easing.min.js' %}"></script>
+    <script src="{% static 'lib/waypoints/waypoints.min.js' %}"></script>
+    <script src="{% static 'lib/counterup/counterup.min.js' %}"></script>
+    <script src="{% static 'lib/owlcarousel/owl.carousel.min.js' %}"></script>
+
+    <!-- Contact Javascript File -->
+    <script src="{% static 'mail/jqBootstrapValidation.min.js' %}"></script>
+    <script src="{% static 'mail/contact.js' %}"></script>
+    <script src="{% static 'js_1/bootstrap.js' %}"></script>
+    <script src="{% static 'js_1/jquery.dcjqaccordion.2.7.js' %}"></script>
+    <script src="{% static 'js_1/scripts.js' %}"></script>
+    <script src="{% static 'js_1/jquery.slimscroll.js' %}"></script>
+    <script src="{% static 'js_1/jquery.nicescroll.js' %}"></script>
+    <script src="{% static 'js_1/jquery.scrollTo.js' %}"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $("#b1").click(function(){
+                ram=$("#id1").val()
+                rom=$("#id2").val()
+                camera=$("#id3").val()
+                size=$("#id4").val()
+                battery=$("#id5").val()
+                rating=$("#id6").val()
+                price=$("#id7").val()
+
+                if (price=='')
+                {
+                    alert("fill all fields")
+                }
+                else
+                {
+                    $.ajax({
+                        url:"/find_mobile/",
+                        datatype:"json",
+                        data:{
+                                "ram":ram,
+                                "rom":rom,
+                                "camera":camera,
+                                "size":size,
+                                "battery":battery,
+                                "rating":rating,
+                                "price":price,
+                        },
+                        success:function(any)
+                        {
+                            $(".p").addClass("dark");
+                            $(".q").removeClass("dark")
+
+                            path="static/mobile_images/"
+
+                            document.getElementById('i1').value =any[0][0];
+                            $('#p1').text(any[0][1] )
+                            $('#p2').text(any[0][2] +" Gb")
+                            $('#p3').text(any[0][3] +" Gb")
+                            $('#p4').text(any[0][4] +" MP")
+                            $('#p5').text(any[0][5] +" cm")
+                            $('#p6').text(any[0][6] +" Mah")
+                            $('#p7').text(any[0][7])
+                            $('#p8').text("₹ " +any[0][8])
+                            $("#img1").attr('src',path + any[0][9])
+
+                            document.getElementById('i2').value =any[1][0];
+                            $('#p9').text(any[1][1])
+                            $('#p10').text(any[1][2] +" Gb")
+                            $('#p11').text(any[1][3] +" Gb")
+                            $('#p12').text(any[1][4] +" MP")
+                            $('#p13').text(any[1][5] +" cm")
+                            $('#p14').text(any[1][6] +" Mah")
+                            $('#p15').text(any[1][7])
+                            $('#p16').text("₹ " +any[1][8])
+                            $("#img2").attr('src',path + any[1][9])
+
+                            document.getElementById('i3').value =any[2][0];
+                            $('#p17').text(any[2][1])
+                            $('#p18').text(any[2][2] +" Gb")
+                            $('#p19').text(any[2][3] +" Gb")
+                            $('#p20').text(any[2][4] +" MP")
+                            $('#p21').text(any[2][5] +" cm")
+                            $('#p22').text(any[2][6] +" Mah")
+                            $('#p23').text(any[2][7])
+                            $('#p24').text("₹ " +any[2][8])
+                            $("#img3").attr('src',path + any[2][9])
+
+                            document.getElementById('i4').value =any[3][0];
+                            $('#p25').text(any[3][1])
+                            $('#p26').text(any[3][2] +" Gb")
+                            $('#p27').text(any[3][3] +" Gb")
+                            $('#p28').text(any[3][4] +" MP")
+                            $('#p29').text(any[3][5] +" cm")
+                            $('#p30').text(any[3][6] +" Mah")
+                            $('#p31').text(any[3][7])
+                            $('#p32').text("₹ " +any[3][8])
+                            $("#img4").attr('src',path + any[3][9])
+
+                            document.getElementById('i5').value =any[4][0];
+                            $('#p33').text(any[4][1])
+                            $('#p34').text(any[4][2] +" Gb")
+                            $('#p35').text(any[4][3] +" Gb")
+                            $('#p36').text(any[4][4] +" MP")
+                            $('#p37').text(any[4][5] +" cm")
+                            $('#p38').text(any[4][6] +" Mah")
+                            $('#p39').text(any[4][7])
+                            $('#p40').text("₹ " +any[4][8])
+                            $("#img5").attr('src',path + any[4][9])
+
+                            document.getElementById('i6').value =any[5][0];
+                            $('#p41').text(any[5][1])
+                            $('#p42').text(any[5][2] +" Gb")
+                            $('#p43').text(any[5][3] +" Gb")
+                            $('#p44').text(any[5][4] +" MP")
+                            $('#p45').text(any[5][5] +" cm")
+                            $('#p46').text(any[5][6] +" Mah")
+                            $('#p47').text(any[5][7])
+                            $('#p48').text("₹ " +any[5][8])
+                            $("#img6").attr('src',path + any[5][9])
+                           
+
+
+                        }
+                    })
+                }
+            })
+        })
+    </script>
+
+</body>
+
+</html>

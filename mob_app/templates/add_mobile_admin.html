@@ -1,0 +1,151 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Add_Mobile_Admin</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Free HTML Templates" name="keywords">
+    <meta content="Free HTML Templates" name="description">
+
+    <!-- Favicon -->
+    <link href="{% static 'img/favicon.ico' %}" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"> 
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="{% static 'lib/owlcarousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
+    <script src="{% static 'js_1/jquery2.0.3.min.js' %}"></script>
+    <script src="{% static 'js_1/raphael-min.js' %}"></script>
+    <script src="{% static 'js_1/morris.js' %}"></script>
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'datatable/jquery.dataTables.min.css' %}">
+    <script type="text/javascript" src="{% static 'datatable/jquery.dataTables.min.js' %}"></script>
+
+    <script type="text/javascript" src="{% static 'datatable/bootstable.min.js' %}"></script>
+
+    <script type="text/javascript">
+    
+        $(document).ready(function(){
+
+            $('#table').DataTable();
+        })
+    </script>
+    <style>
+        #table{background:lightslategray ;color: black}
+        .a{margin-left: 380px;background: lightslategray;
+            padding-right: 30px;}
+
+    </style>
+    
+</head>
+
+<body>
+    <!-- Navbar Start -->
+    <div>
+        <div>
+            <nav class="navbar navbar-expand-lg bg-secondary navbar-dark">
+                <a href="#" class="navbar-brand">
+                    <h1 class="m-0 text-white display-4"><span class="text-primary">Mobile</span>Finder<span class="text-primary"></h1>
+                </a>
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                    <div class="navbar-nav ml-auto py-0">
+                        <a href="{% url 'show_home_admin' %}" class="nav-item nav-link active">Home</a>
+                        <a href="{% url 'view_users_admin' %}" class="nav-item nav-link">View Users</a>
+                        <div class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Mobile Details</a>
+                            <div class="dropdown-menu border-0 rounded-0 m-0">
+                                <a href="{% url 'display_add_mobile_admin' %}" class="dropdown-item">Add</a>
+                                <a href="{% url 'show_view_mobile_admin' %}" class="dropdown-item">View</a>
+                            </div>
+                        </div>
+                        <a href="{% url 'logout'%}" class="nav-item nav-link" style="color:red;">Logout</a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <!-- Navbar End -->
+
+
+    <!-- Carousel Start -->
+    <div class="container-fluid p-0 mb-5">
+        <h2 style="text-align: center; margin-top:80px;"><u>Add Mobile</u></h2><br><br>
+       
+        <form class="row contact_us_form" action="{% url 'add_mobile' %}" method="post"  enctype='multipart/form-data'>{% csrf_token %}
+           <div class="a"><br>
+                <label style="color:black; padding-top: 40px; font-weight: bold; margin-left:130px;" for="mname" >Mobile Name :</label>
+                <input  type="text" id="id1" class="form-control" style="width: 400px;margin-left:300px;margin-top:-40px;" placeholder="Mobile name" name="mname" required><br><br>
+                <label style="color:black; font-weight: bold; margin-left:130px;" for="ram" >RAM :</label>
+                <input  type="text" id="id2" class="form-control" style="width: 200px;margin-left:300px;margin-top:-40px;" placeholder="RAM (GB)" name="ram" required><br><br>
+                <label style="color:black; font-weight: bold; margin-left:130px;" for="rom" >ROM :</label>
+                <input  type="text" id="id3" class="form-control" style="width: 200px;margin-left:300px;margin-top:-40px;" placeholder="ROM (GB)" name="rom" required><br><br>
+                <label style="color:black; font-weight: bold; margin-left:130px;" for="camera" >Camera :</label>
+                <input  type="text" id="id4" class="form-control" style="width: 200px;margin-left:300px;margin-top:-40px;" placeholder="Camera (MP)" name="camera" required><br><br>
+                <label style="color:black; font-weight: bold; margin-left:130px;" for="size" >Size :</label>
+                <input  type="text" id="id5" class="form-control" style="width: 200px;margin-left:300px;margin-top:-40px;" placeholder="Size (inch)" name="size" required><br><br>
+                <label style="color:black; font-weight: bold; margin-left:130px;" for="battery" >Battery :</label>
+                <input  type="text" id="id6" class="form-control" style="width: 200px;margin-left:300px;margin-top:-40px;" placeholder="Battery (Mah)" name="battery" required><br><br>
+                <label style="color:black; font-weight: bold; margin-left:130px;" for="rating" >Rating :</label>
+                <input  type="text" id="id7" class="form-control" style="width: 200px;margin-left:300px;margin-top:-40px;" placeholder="Rating" name="rating" required><br><br>
+                <label style="color:black; font-weight: bold; margin-left:130px;" for="price" >Price :</label>
+                <input  type="text" id="id8" class="form-control" style="width: 200px;margin-left:300px;margin-top:-40px;" placeholder="Price" name="price" required><br><br>
+                <label style="color:black; font-weight: bold; margin-left:130px;" for="pic" >Upload Picture :</label>
+                <input type="file" class="form-control" style="width: 400px;margin-left:300px;margin-top:-40px;" name="picture" placeholder="Choose File"><br>
+
+                <input type="submit" id="b1" value="Add" class="btn btn-success" style="margin-left:300px;"><br><br><br>
+            </div>
+        </form>
+    </div>
+    <!-- Carousel End -->
+
+
+
+
+    <!-- Footer Start -->
+    <div style="position: relative; top:164px; background-color:black; height: 57px;">
+        <p class="m-0 text-center" style="padding-top: 20px;">
+            &copy; <a class="font-weight-semi-bold" href="#">MobileFinder</a>. All Rights Reserved. Designed by
+            <a class="font-weight-semi-bold" href="#">Me</a>
+        </p>
+    </div>
+    <!-- Footer End -->
+
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary back-to-top"><i class="fa fa-angle-up"></i></a>
+
+
+    <!-- JavaScript Libraries -->
+ <!--    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script> -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="{% static 'lib/easing/easing.min.js' %}"></script>
+    <script src="{% static 'lib/waypoints/waypoints.min.js' %}"></script>
+    <script src="{% static 'lib/counterup/counterup.min.js' %}"></script>
+    <script src="{% static 'lib/owlcarousel/owl.carousel.min.js' %}"></script>
+
+    <!-- Contact Javascript File -->
+    <script src="{% static 'mail/jqBootstrapValidation.min.js' %}"></script>
+    <script src="{% static 'mail/contact.js' %}"></script>
+    <script src="{% static 'js_1/bootstrap.js' %}"></script>
+    <script src="{% static 'js_1/jquery.dcjqaccordion.2.7.js' %}"></script>
+    <script src="{% static 'js_1/scripts.js' %}"></script>
+    <script src="{% static 'js_1/jquery.slimscroll.js' %}"></script>
+    <script src="{% static 'js_1/jquery.nicescroll.js' %}"></script>
+    <script src="{% static 'js_1/jquery.scrollTo.js' %}"></script>
+
+   
+</body>
+
+</html>

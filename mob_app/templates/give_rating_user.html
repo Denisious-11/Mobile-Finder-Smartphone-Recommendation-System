@@ -1,0 +1,206 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Give_Rating_User</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Free HTML Templates" name="keywords">
+    <meta content="Free HTML Templates" name="description">
+
+    <!-- Favicon -->
+    <link href="{% static 'img/favicon.ico' %}" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"> 
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="{% static 'lib/owlcarousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
+    <script src="{% static 'js_1/jquery2.0.3.min.js' %}"></script>
+    <script src="{% static 'js_1/raphael-min.js' %}"></script>
+    <script src="{% static 'js_1/morris.js' %}"></script>
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'datatable/jquery.dataTables.min.css' %}">
+    <script type="text/javascript" src="{% static 'datatable/jquery.dataTables.min.js' %}"></script>
+
+    <script type="text/javascript" src="{% static 'datatable/bootstable.min.js' %}"></script>
+
+    <style>
+        .a{background-color: lightslategray;
+            margin-left: 300px;
+            margin-right: 300px;
+            padding-left: 260px;}
+ 
+        #b1{background-color: orange;}
+
+
+    </style>
+    
+</head>
+
+<body>
+   <!-- Navbar Start -->
+    <div>
+        <div>
+            <nav class="navbar navbar-expand-lg bg-secondary navbar-dark">
+                <a href="#" class="navbar-brand">
+                    <h1 class="m-0 text-white display-4"><span class="text-primary">Mobile</span>Finder<span class="text-primary"></h1>
+                </a>
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse" >
+                    <div class="navbar-nav ml-auto py-0">
+                        <a href="{% url 'show_home_user' %}" class="nav-item nav-link active">Home</a>
+                        <a href="{% url 'display_find_my_mobile_user' %}" class="nav-item nav-link">Find My Mobile</a>
+                        <a href="{% url 'show_give_rating_user' %}" class="nav-item nav-link">Give Rating</a>
+                        <a href="{% url 'view_recommendations_user' %}" class="nav-item nav-link">View Recommendations</a>
+                        <a href="{% url 'logout' %}" class="nav-item nav-link" style="color:red;">Logout</a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <!-- Navbar End -->
+
+    <!-- Carousel Start -->
+    <div class="container-fluid p-0 mb-5">
+        <h3 style="text-align: center; margin-top:60px;"><u>Give Rating</u></h3><br>
+        <div class="a">
+            <br><br>
+
+            <div class="form-group col-md-6" style="color:black">
+                Mobile Name :
+                <select id="s1" class="form-control col-sm-12" style="font-size: 14px;">
+                </select><br>
+                
+                Rating :
+                <select id="s2" class="form-control" name="rating" required=""> 
+                    <option>Select</option>
+                    <option>High</option>
+                    <option>Medium</option>
+                    <option>Low</option>
+                </select><br>
+                Review :
+                <select id="s3" class="form-control" name="review" required="">
+                    <option>Select</option> 
+                    <option>Good Product</option>
+                    <option>Bad Product</option>
+                </select><br>
+                
+                <button id="b1" type="button" class="btn btn-success" style="margin-left: 50px;">Add Rating</button><br><br>
+
+            </div><br>
+
+        </div>
+
+    </div>
+    <!-- Carousel End -->
+
+
+
+
+    <!-- Footer Start -->
+    <div style="position: relative; top:164px; background-color:black; height: 57px;">
+        <p class="m-0 text-center" style="padding-top: 20px;">
+            &copy; <a class="font-weight-semi-bold" href="#">MobileFinder</a>. All Rights Reserved. Designed by
+            <a class="font-weight-semi-bold" href="#">Me</a>
+        </p>
+    </div>
+    <!-- Footer End -->
+
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary back-to-top"><i class="fa fa-angle-up"></i></a>
+
+
+    <!-- JavaScript Libraries -->
+ <!--    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script> -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="{% static 'lib/easing/easing.min.js' %}"></script>
+    <script src="{% static 'lib/waypoints/waypoints.min.js' %}"></script>
+    <script src="{% static 'lib/counterup/counterup.min.js' %}"></script>
+    <script src="{% static 'lib/owlcarousel/owl.carousel.min.js' %}"></script>
+
+    <!-- Contact Javascript File -->
+    <script src="{% static 'mail/jqBootstrapValidation.min.js' %}"></script>
+    <script src="{% static 'mail/contact.js' %}"></script>
+    <script src="{% static 'js_1/bootstrap.js' %}"></script>
+    <script src="{% static 'js_1/jquery.dcjqaccordion.2.7.js' %}"></script>
+    <script src="{% static 'js_1/scripts.js' %}"></script>
+    <script src="{% static 'js_1/jquery.slimscroll.js' %}"></script>
+    <script src="{% static 'js_1/jquery.nicescroll.js' %}"></script>
+    <script src="{% static 'js_1/jquery.scrollTo.js' %}"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $.ajax({
+                url:"/display_mobile_list/",
+                datatype:"json",
+                success:function(any)
+                {
+
+                    var all = new Array();
+                    for(var i=0;i<any.key.length;i++)
+                    {
+                        all[i]=any.key[i].fields.mobile_name
+                    }
+                    // alert(all)
+                    all.sort()
+                    // alert(all)
+                    // alert(all.length)
+
+                    $("#s1").empty();
+                    $("#s1").append("<option>Select Purchased Mobile</option>");
+
+                    // $("#s1").append("<option value='"+any.key[i].fields.mobile_name+"'>"+any.key[i].fields.mobile_name+"</option>")
+
+                    for(var j=0;j<all.length;j++)
+                    {
+                        $("#s1").append("<option value='"+all[j]+"'>"+all[j]+"</option>")
+                    }
+                }
+            })
+
+            $("#b1").click(function(){
+                mobile_name=$("#s1").val()
+                rating=$("#s2").val()
+                review=$("#s3").val()
+
+
+                if((mobile_name=='Select Purchased Mobile')||(rating=='Select')||(review=='Select'))
+                {
+                    alert("Fill all fields")
+                }
+                else
+                {
+                    $.ajax({
+                        url:"/add_rating/",
+                        datatype:"json",
+                        data:{
+                                "mobile_name":mobile_name,
+                                "rating":rating,
+                                "review":review,
+                        },
+                        success:function(any)
+                        {
+                            alert(any);
+                            window.location.reload()
+                        }
+                    })
+
+                }
+            })
+        })
+    </script>
+
+</body>
+
+</html>
